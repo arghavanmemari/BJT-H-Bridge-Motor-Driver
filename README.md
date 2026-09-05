@@ -217,7 +217,7 @@ The use of discrete components provides a clear understanding of transistor swit
 # Author
 
 - Arghavan Memari
-- Erfan Faghihi
+- Erfan Feghhi
 - Alireza Montajab
 
 Digital Electronics Course Project
