@@ -271,10 +271,10 @@ Future improvements could include:
 
 ---
 
-# Author
+# Contributors
 
-Arghavan Memari
-Erfan Feghhi
-Alireza Montajab
+- **Arghavan Memari**
+- **Erfan Feghhi**
+- **Alireza Montajab**
 
 Electronics Design | Embedded Systems | PCB Design
