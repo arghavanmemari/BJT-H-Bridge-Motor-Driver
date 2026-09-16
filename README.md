@@ -1,223 +1,280 @@
 # BJT H-Bridge Motor Driver
 
-## Digital Electronics Project
+<p align="center">
+  <img src="images/assembled-pcb-angle.jpeg" width="750">
+</p>
 
-A discrete-component **BJT H-Bridge Motor Driver** designed and implemented as a university electronics project.
+## Overview
 
-The project covers the complete hardware development process, including:
+This project presents the design and implementation of a **discrete BJT-based H-Bridge motor driver** for bidirectional DC motor control.
 
-- Circuit design
-- Altium Designer schematic capture
-- PCB layout design
-- PCB fabrication
-- Hardware assembly
-- Functional testing
+The main objective of this project was to design, simulate, manufacture, and test a complete motor driver circuit from the initial schematic stage to a physical PCB prototype.
 
-The motor driver is based on a transistor H-bridge topology that enables bidirectional DC motor control.
+The project demonstrates practical experience in:
 
----
+- Electronic circuit design
+- Power switching circuits
+- PCB design and fabrication
+- Hardware prototyping
+- Motor control fundamentals
 
-# Project Overview
-
-An H-Bridge circuit is a widely used motor control topology that allows a DC motor to rotate in both directions by changing the polarity of the voltage applied to the motor terminals.
-
-This project implements an H-Bridge using discrete bipolar junction transistors (BJTs), protection diodes, biasing resistors, and a manual control switch.
-
-The designed board provides:
-
-- Forward motor rotation
-- Reverse motor rotation
-- Protection against inductive voltage spikes
-- Compact custom PCB implementation
+The schematic and PCB were designed using **Altium Designer**, and the final circuit was manufactured and assembled as a functional hardware prototype.
 
 ---
 
-# System Features
+# Project Objectives
 
-- Discrete BJT H-Bridge configuration
-- Bidirectional DC motor control
-- Flyback protection diodes
-- Custom PCB design
-- Altium Designer source files included
-- Fabricated PCB prototype
-- Hardware assembly and testing
+The main goals of this project were:
+
+- Designing a transistor-based H-Bridge topology
+- Controlling the direction of a DC motor
+- Implementing a custom PCB design
+- Selecting appropriate switching and protection components
+- Fabricating and assembling the final PCB
+- Testing the hardware implementation
 
 ---
 
-# Circuit Description
+# Working Principle
 
-The circuit consists of four BJTs arranged in an H-bridge structure.
+An H-Bridge is a motor driver topology that allows changing the polarity applied to a DC motor.
 
-By controlling the switching states of the transistors, the polarity across the motor terminals can be reversed.
+By controlling the switching states of the four BJT transistors, the direction of current through the motor can be changed, allowing:
 
-## Operating Modes
+- Forward rotation
+- Reverse rotation
+- Motor stop state
 
-| Control State | Motor Operation |
+
+Basic operation:
+
+```
+          +V Supply
+
+              |
+        +-----+-----+
+        |           |
+       Q1           Q2
+        |           |
+        +---- Motor +
+        |
+        Motor
+        |
+        +---- Motor -
+        |           |
+       Q3           Q4
+        |           |
+        +-----+-----+
+
+              |
+             GND
+```
+
+---
+
+# Hardware Design
+
+## Main Components
+
+| Component | Function |
 |---|---|
-| Forward Switching | Clockwise rotation |
-| Reverse Switching | Counter-clockwise rotation |
-| OFF State | Motor stopped |
+| BJT Transistors | Switching elements for H-Bridge |
+| Flyback Diodes | Protection against voltage spikes |
+| Resistors | Base current limiting and biasing |
+| Motor Terminals | DC motor connection |
+| Power Terminals | Supply input |
+| Custom PCB | Hardware implementation |
 
 ---
 
-# Main Components
+# Circuit Design
 
-| Component | Quantity | Function |
-|---|---:|---|
-| BJT Transistors | 4 | H-bridge switching elements |
-| Diodes | 4 | Flyback voltage protection |
-| Resistors | 6 | Biasing and current limiting |
-| Control Switch | 1 | Direction control |
-| Terminal Blocks | 2 | Power and motor connection |
-| Custom PCB | 1 | Hardware implementation |
+The complete schematic was designed using **Altium Designer**.
+
+The design includes:
+
+- Four-transistor H-Bridge switching stage
+- Base drive networks
+- Motor connection interface
+- Protection components
+- Power supply section
+
+
+Project files:
+
+```
+altium/
+│
+├── Sheet1.SchDoc
+├── PCB1.PcbDoc
+└── PCB_Project1.PrjPCB
+```
 
 ---
 
 # PCB Design
 
-The PCB was designed using **Altium Designer**.
+The PCB layout was developed in Altium Designer.
 
-The design includes:
+The design process included:
 
 - Component placement
-- PCB routing
-- Power traces
-- Through-hole component footprints
-- Manufacturing-ready layout
+- Routing optimization
+- Through-hole footprint selection
+- Manufacturing preparation
+- 3D PCB verification
+
 
 ## PCB Layout
 
-![PCB Layout](images/pcb-layout.png)
+<p align="center">
+  <img src="images/pcb-layout.png" width="800">
+</p>
+
+
+## 3D PCB View
+
+<p align="center">
+  <img src="images/pcb-3d-view.png" width="800">
+</p>
 
 ---
 
-# 3D PCB Visualization
+# Hardware Fabrication
 
-A 3D PCB model was generated in Altium Designer to verify:
-
-- Component placement
-- Board dimensions
-- Mechanical arrangement
-
-![PCB 3D View](images/pcb-3d-view.png)
-
----
-
-# Hardware Implementation
-
-After PCB fabrication, all components were assembled manually and tested.
+After completing the PCB design, the board was fabricated and assembled.
 
 The final prototype includes:
 
-- Mounted BJTs
-- Protection diodes
-- Bias resistors
-- Screw terminals
-- Control switch
+- BJT switching stage
+- Protection components
+- Motor connection terminals
+- Power input section
 
-![Assembled PCB](images/assembled-pcb.jpeg)
 
-Additional hardware view:
+## Manufactured PCB
 
-![Assembled PCB Angle](images/assembled-pcb-angle.jpeg)
+<p align="center">
+  <img src="images/assembled-pcb.jpeg" width="700">
+</p>
 
----
 
-# Altium Designer Files
-
-The original design files are included in the `altium` directory.
-
-Files:
-
-```
-altium/
-
-├── Sheet1.SchDoc
-├── PCB1.PcbDoc
-├── PCB_Project1.PrjPCB
-└── PCB_Project1.PrjPCBStructure
-```
-
-Description:
-
-- `Sheet1.SchDoc`  
-  → Complete circuit schematic
-
-- `PCB1.PcbDoc`  
-  → PCB layout design
-
-- `PCB_Project1.PrjPCB`  
-  → Main Altium project file
-
-- `PCB_Project1.PrjPCBStructure`  
-  → Project structure file
+<p align="center">
+  <img src="images/assembled-pcb-angle.jpeg" width="700">
+</p>
 
 ---
 
 # Repository Structure
 
 ```
-BJT-H-Bridge-Motor-Driver/
+BJT-H-Bridge-Motor-Driver
 
 │
-├── README.md
-│
-├── altium/
+├── altium
 │   ├── Sheet1.SchDoc
 │   ├── PCB1.PcbDoc
-│   ├── PCB_Project1.PrjPCB
-│   └── PCB_Project1.PrjPCBStructure
+│   └── PCB_Project1.PrjPCB
 │
-└── images/
-    ├── pcb-layout.png
-    ├── pcb-3d-view.png
-    ├── assembled-pcb.jpeg
-    └── assembled-pcb-angle.jpeg
+├── images
+│   ├── pcb-layout.png
+│   ├── pcb-3d-view.png
+│   ├── assembled-pcb.jpeg
+│   └── assembled-pcb-angle.jpeg
+│
+└── README.md
 ```
 
 ---
 
-# Design Tools
+# Design Workflow
 
-## Software
+The project workflow consisted of:
 
+```
+Circuit Concept
+
+      ↓
+
+Schematic Design
+
+      ↓
+
+PCB Layout
+
+      ↓
+
+3D Verification
+
+      ↓
+
+PCB Fabrication
+
+      ↓
+
+Component Assembly
+
+      ↓
+
+Hardware Testing
+```
+
+---
+
+# Skills Demonstrated
+
+This project demonstrates practical skills in:
+
+- Analog Electronics
+- Digital Electronics
+- Power Electronics
+- BJT Switching Circuits
+- DC Motor Control
+- PCB Schematic Design
+- PCB Layout Design
 - Altium Designer
-
-## Hardware
-
-- Discrete BJTs
-- Diodes
-- Resistors
-- PCB board
-- DC motor
+- Hardware Prototyping
+- Circuit Debugging
 
 ---
 
-# Results
+# Engineering Considerations
 
-The fabricated PCB successfully demonstrates the operation of a discrete BJT H-Bridge motor driver.
+## Switching Design
 
-The project verified:
+The H-Bridge design required careful consideration of transistor switching behavior, base drive requirements, and protection against inductive load effects.
 
-✔ PCB design workflow  
-✔ Hardware fabrication  
-✔ Component assembly  
-✔ Bidirectional motor control concept  
+## PCB Implementation
+
+The schematic was converted into a manufacturable PCB while considering:
+
+- Component placement
+- Routing constraints
+- Power connections
+- Mechanical organization
+
+## Prototype Validation
+
+The manufactured PCB was assembled and evaluated to verify the physical implementation of the designed circuit.
 
 ---
 
-# Conclusion
+# Possible Improvements
 
-This project demonstrates the complete design cycle of a practical motor driver circuit, from schematic design to PCB fabrication and hardware implementation.
+Future improvements could include:
 
-The use of discrete components provides a clear understanding of transistor switching behavior and H-Bridge motor control principles.
+- Replacing BJTs with MOSFETs for higher efficiency
+- Adding PWM speed control
+- Adding current sensing protection
+- Integrating a microcontroller control interface
+- Implementing closed-loop motor speed control
 
 ---
 
 # Author
 
-- Arghavan Memari
-- Erfan Feghhi
-- Alireza Montajab
+Arghavan Memari
+Erfan Feghhi
+Alireza Montajab
 
-Digital Electronics Course Project
+Electronics Design | Embedded Systems | PCB Design
